@@ -53,14 +53,9 @@ class PomodoroTimer extends DataroomElement {
     // Title
     const title = document.createElement('h1');
     title.className = 'main-title';
-    title.textContent = 'Pomodoro Timer';
+    title.textContent = 'CrashPomodoro';
     container.appendChild(title);
 
-    // Session counter
-    const counter = document.createElement('div');
-    counter.className = 'session-counter';
-    counter.textContent = `Sessions Completed: ${this.sessionCount}`;
-    container.appendChild(counter);
 
     // Start button
     const startButton = document.createElement('button');
@@ -71,6 +66,13 @@ class PomodoroTimer extends DataroomElement {
       this.startPomodoroSession();
     });
     container.appendChild(startButton);
+
+
+    // Session counter
+    const counter = document.createElement('div');
+    counter.className = 'session-counter';
+    counter.textContent = `Sessions Completed: ${this.sessionCount} of 12`;
+    container.appendChild(counter);
     
     console.log('Start screen rendered');
   }
@@ -104,22 +106,20 @@ class PomodoroTimer extends DataroomElement {
     title.textContent = 'Set Our Goal!';
     container.appendChild(title);
 
-    const timer = document.createElement('div');
-    timer.className = 'timer-display';
-    timer.textContent = this.formatTime(this.timeRemaining);
-    container.appendChild(timer);
-
-    const label = document.createElement('label');
-    label.className = 'goal-label';
-    label.textContent = 'What is our goal?';
-    container.appendChild(label);
-
     const input = document.createElement('input');
     input.type = 'text';
     input.className = 'goal-input';
     input.placeholder = 'Enter your goal for this session...';
     input.addEventListener('input', (e) => this.currentGoal = e.target.value);
     container.appendChild(input);
+
+
+    const timer = document.createElement('div');
+    timer.className = 'timer-display';
+    timer.textContent = this.formatTime(this.timeRemaining);
+    container.appendChild(timer);
+
+ 
 
     this.renderTimerControls(container);
     setTimeout(() => input.focus(), 100);
@@ -141,10 +141,6 @@ class PomodoroTimer extends DataroomElement {
       .then(svgContent => logoContainer.innerHTML = svgContent)
       .catch(() => logoContainer.innerHTML = '<div class="logo-placeholder">⚡</div>');
 
-    const title = document.createElement('h2');
-    title.className = 'phase-title';
-    title.textContent = 'Deep Work';
-    container.appendChild(title);
 
     if (this.currentGoal) {
       const goal = document.createElement('div');
@@ -166,31 +162,17 @@ class PomodoroTimer extends DataroomElement {
     const container = document.createElement('div');
     container.className = 'pomodoro-container relaxation-screen';
     this.appendChild(container);
-
-    // Add logo
-    const logoContainer = document.createElement('div');
-    logoContainer.className = 'logo-container';
-    container.appendChild(logoContainer);
-    
-    fetch('./logo.svg')
-      .then(response => response.text())
-      .then(svgContent => logoContainer.innerHTML = svgContent)
-      .catch(() => logoContainer.innerHTML = '<div class="logo-placeholder">⚡</div>');
-
-    const title = document.createElement('h2');
-    title.className = 'phase-title';
-    title.textContent = 'Relax!';
-    container.appendChild(title);
-
-    const timer = document.createElement('div');
-    timer.className = 'timer-display';
-    timer.textContent = this.formatTime(this.timeRemaining);
-    container.appendChild(timer);
     
     const videoContainer = document.createElement('div');
     videoContainer.className = 'video-container';
     container.appendChild(videoContainer);
     this.loadRandomVideo(videoContainer);
+
+    const timer = document.createElement('div');
+    timer.className = 'timer-display';
+    timer.textContent = this.formatTime(this.timeRemaining);
+    container.appendChild(timer);
+
     
     this.renderTimerControls(container);
   }
@@ -210,8 +192,8 @@ class PomodoroTimer extends DataroomElement {
 
     const iframe = document.createElement('iframe');
     iframe.src = `https://www.youtube.com/embed/videoseries?list=${playlistId}&autoplay=1&mute=1&controls=1&loop=1`;
-    iframe.width = '560';
-    iframe.height = '315';
+    iframe.width = '1080';
+    iframe.height = '720';
     iframe.frameBorder = '0';
     iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
     iframe.allowFullscreen = true;

@@ -29,9 +29,9 @@
   --text-light: #ffffff;
   --text-dark: #221e1f;
   --font-family-primary: 'League Gothic', Arial, sans-serif;
-  --font-family-secondary: Arial, sans-serif;
+  --font-family-secondary: 'League Gothic', Arial, sans-serif;
   --h1-font-size: 4rem;
-  --h2-font-size: 3rem;
+  --h2-font-size: 2rem;
   --timer-font-size: 6rem;
   --button-font-size: 1.5rem;
 }

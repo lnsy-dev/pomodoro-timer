@@ -25,14 +25,12 @@ body {
   text-align: center;
   padding: 2rem;
   min-height: 80vh;
-  max-width: 800px;
   width: 100%;
 }
 
 .logo-container svg {
-  width: 120px;
+  width: 335px;
   height: auto;
-  margin-bottom: 2rem;
   animation: logoFloat 3s ease-in-out infinite;
 }
 
@@ -73,7 +71,6 @@ body {
   font-family: var(--font-family-primary);
   font-size: var(--h2-font-size);
   color: var(--primary-color);
-  margin-bottom: 2rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   animation: bounceIn 0.8s ease-out;
@@ -168,28 +165,25 @@ body {
 
 .session-counter {
   font-size: 1.2rem;
+  font-family: var(--font-family-secondary);
   color: var(--secondary-color);
-  margin-bottom: 3rem;
 }
 
 .timer-display {
   font-family: var(--font-family-primary);
   font-size: var(--timer-font-size);
   color: var(--secondary-color);
-  margin: 2rem 0;
   font-weight: normal;
 }
 
 .goal-display {
   font-family: var(--font-family-primary);
-  font-size: 2rem;
+  font-size: 4rem;
   color: var(--primary-color);
-  margin: 2rem 0;
   padding: 1rem;
   border: 2px solid var(--primary-color);
   border-radius: 8px;
   background-color: rgba(248, 153, 57, 0.1);
-  max-width: 600px;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -206,7 +200,7 @@ body {
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-top: 2rem;
+  margin-bottom: 1em;
 }
 
 .start-button:hover {
@@ -230,7 +224,6 @@ body {
   border-radius: 8px;
   width: 100%;
   max-width: 500px;
-  margin-bottom: 2rem;
   text-align: center;
   background-color: var(--background-color);
   color: var(--secondary-color);
@@ -244,7 +237,6 @@ body {
 .timer-controls {
   display: flex;
   gap: 1rem;
-  margin-top: 2rem;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -287,12 +279,12 @@ body {
 .video-container {
   margin: 2rem 0;
   width: 100%;
-  max-width: 560px;
+  width: 1080px;
+  height: 720px;
 }
 
 .youtube-player {
   width: 100%;
-  height: 315px;
   border-radius: 8px;
 }
 
