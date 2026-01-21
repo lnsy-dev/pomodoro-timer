@@ -16,6 +16,7 @@ class PomodoroTimer extends DataroomElement {
     
     // Render immediately
     this.renderStartScreen();
+    this.addFullscreenButton();
   }
 
   async loadPlaylists() {
@@ -384,6 +385,23 @@ class PomodoroTimer extends DataroomElement {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
     return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+  }
+
+  addFullscreenButton() {
+    const button = document.createElement('button');
+    button.className = 'fullscreen-button';
+    button.innerHTML = '⛶';
+    button.title = 'Toggle Fullscreen';
+    button.addEventListener('click', () => this.toggleFullscreen());
+    document.body.appendChild(button);
+  }
+
+  toggleFullscreen() {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+    } else {
+      document.exitFullscreen();
+    }
   }
 }
 
