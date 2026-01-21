@@ -20,7 +20,7 @@ class PomodoroTimer extends DataroomElement {
 
   async loadPlaylists() {
     try {
-      const response = await fetch('/youtube-playlist.csv');
+      const response = await fetch('./youtube-playlist.csv');
       const text = await response.text();
       const lines = text.split('\n').slice(1);
       this.playlists = lines.filter(line => line.trim()).map(line => line.trim());
@@ -45,7 +45,7 @@ class PomodoroTimer extends DataroomElement {
     logoContainer.className = 'logo-container';
     container.appendChild(logoContainer);
     
-    fetch('/logo.svg')
+    fetch('./logo.svg')
       .then(response => response.text())
       .then(svgContent => logoContainer.innerHTML = svgContent)
       .catch(() => logoContainer.innerHTML = '<div class="logo-placeholder">⚡</div>');
@@ -94,7 +94,7 @@ class PomodoroTimer extends DataroomElement {
     logoContainer.className = 'logo-container';
     container.appendChild(logoContainer);
     
-    fetch('/logo.svg')
+    fetch('./logo.svg')
       .then(response => response.text())
       .then(svgContent => logoContainer.innerHTML = svgContent)
       .catch(() => logoContainer.innerHTML = '<div class="logo-placeholder">⚡</div>');
@@ -136,7 +136,7 @@ class PomodoroTimer extends DataroomElement {
     logoContainer.className = 'logo-container';
     container.appendChild(logoContainer);
     
-    fetch('/logo.svg')
+    fetch('./logo.svg')
       .then(response => response.text())
       .then(svgContent => logoContainer.innerHTML = svgContent)
       .catch(() => logoContainer.innerHTML = '<div class="logo-placeholder">⚡</div>');
@@ -172,7 +172,7 @@ class PomodoroTimer extends DataroomElement {
     logoContainer.className = 'logo-container';
     container.appendChild(logoContainer);
     
-    fetch('/logo.svg')
+    fetch('./logo.svg')
       .then(response => response.text())
       .then(svgContent => logoContainer.innerHTML = svgContent)
       .catch(() => logoContainer.innerHTML = '<div class="logo-placeholder">⚡</div>');
