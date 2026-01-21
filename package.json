@@ -1,0 +1,53 @@
+{
+  "name": "pomodoro-timer",
+  "version": "1.0.0",
+  "description": "A pomodoro Timer for group projects",
+  "main": "dist/main.min.js",
+  "type": "module",
+  "author": "LNSY <lindsey.mysse@gmail.com>",
+  "license": "Unlicense",
+  "keywords": [
+    "web-workers",
+    "custom-elements",
+    "vanilla-js",
+    "dataroom-js",
+    "rspack",
+    "boilerplate"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lnsy-dev/pomodoro-timer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lnsy-dev/pomodoro-timer/issues"
+  },
+  "homepage": "https://github.com/lnsy-dev/pomodoro-timer#readme",
+  "files": [
+    "dist/",
+    "src/",
+    "styles/",
+    "index.js",
+    "index.css",
+    "index.html"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "rspack serve",
+    "build": "NODE_ENV=production rspack build",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "dataroom-js": "^0.8.0"
+  },
+  "devDependencies": {
+    "@rspack/cli": "^1.5.6",
+    "@rspack/core": "^1.5.6",
+    "@rspack/dev-server": "^1.1.4",
+    "css-loader": "^7.1.2",
+    "cssnano": "^7.1.2",
+    "dotenv": "^17.2.2",
+    "postcss": "^8.5.6",
+    "postcss-loader": "^8.2.0",
+    "style-loader": "^4.0.0"
+  }
+}

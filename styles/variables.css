@@ -1,0 +1,37 @@
+/*
+  *** begin ascii art ***
+  
+   _    _____    ____  _______    ____  __    ___________
+  | |  / /   |  / __ \/  _/   |  / __ )/ /   / ____/ ___/
+  | | / / /| | / /_/ // // /| | / __  / /   / __/  \__ \
+  | |/ / ___ |/ _, _// // ___ |/ /_/ / /___/ /___ ___/ /
+  |___/_/  |_/_/ |_/___/_/  |_/_____/_____/_____//____/
+  
+  *** end ascii art ***
+  
+  Most aesthethic options should live here for adjustment
+*/
+
+
+@font-face {
+  font-family: 'League Gothic';
+  src: url('../assets/league-gothic/LeagueGothic-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --background-color: #ffffff;
+  --foreground-color: #221e1f;
+  --primary-color: #f89939;
+  --secondary-color: #221e1f;
+  --text-light: #ffffff;
+  --text-dark: #221e1f;
+  --font-family-primary: 'League Gothic', Arial, sans-serif;
+  --font-family-secondary: Arial, sans-serif;
+  --h1-font-size: 4rem;
+  --h2-font-size: 3rem;
+  --timer-font-size: 6rem;
+  --button-font-size: 1.5rem;
+}

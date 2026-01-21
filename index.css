@@ -1,0 +1,336 @@
+@import "./styles/variables.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--foreground-color);
+  font-family: var(--font-family-secondary);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pomodoro-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  min-height: 80vh;
+  max-width: 800px;
+  width: 100%;
+}
+
+.logo-container svg {
+  width: 120px;
+  height: auto;
+  margin-bottom: 2rem;
+  animation: logoFloat 3s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.logo-placeholder {
+  font-size: 4rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  animation: logoFloat 3s ease-in-out infinite;
+}
+
+.main-title {
+  font-family: var(--font-family-primary);
+  font-size: var(--h1-font-size);
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.phase-title {
+  font-family: var(--font-family-primary);
+  font-size: var(--h2-font-size);
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  animation: bounceIn 0.8s ease-out;
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.phase-transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(248, 153, 57, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.phase-transition-overlay.active {
+  opacity: 1;
+}
+
+.transition-content {
+  text-align: center;
+  color: white;
+}
+
+.logo-animation {
+  margin-bottom: 2rem;
+  animation: logoSpin 2s ease-in-out infinite;
+}
+
+.logo-animation svg {
+  width: 150px;
+  height: auto;
+  filter: brightness(0) invert(1);
+}
+
+@keyframes logoSpin {
+  0%, 100% { 
+    transform: scale(1) rotate(0deg); 
+  }
+  25% { 
+    transform: scale(1.1) rotate(5deg); 
+  }
+  50% { 
+    transform: scale(1.2) rotate(0deg); 
+  }
+  75% { 
+    transform: scale(1.1) rotate(-5deg); 
+  }
+}
+
+.transition-message {
+  font-family: var(--font-family-primary);
+  font-size: 4rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.session-counter {
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+  margin-bottom: 3rem;
+}
+
+.timer-display {
+  font-family: var(--font-family-primary);
+  font-size: var(--timer-font-size);
+  color: var(--secondary-color);
+  margin: 2rem 0;
+  font-weight: normal;
+}
+
+.goal-display {
+  font-family: var(--font-family-primary);
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin: 2rem 0;
+  padding: 1rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  background-color: rgba(248, 153, 57, 0.1);
+  max-width: 600px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.start-button {
+  font-family: var(--font-family-primary);
+  font-size: var(--button-font-size);
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  border: none;
+  padding: 1.5rem 3rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 2rem;
+}
+
+.start-button:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.goal-label {
+  font-family: var(--font-family-primary);
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.goal-input {
+  font-size: 1.2rem;
+  padding: 1rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 2rem;
+  text-align: center;
+  background-color: var(--background-color);
+  color: var(--secondary-color);
+}
+
+.goal-input:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+}
+
+.timer-controls {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.control-button {
+  font-family: var(--font-family-secondary);
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--secondary-color);
+  border-radius: 6px;
+  background-color: var(--background-color);
+  color: var(--secondary-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.control-button:hover {
+  background-color: var(--secondary-color);
+  color: var(--text-light);
+}
+
+.pause-button {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.pause-button:hover {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+}
+
+.goal-help {
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+  opacity: 0.7;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.video-container {
+  margin: 2rem 0;
+  width: 100%;
+  max-width: 560px;
+}
+
+.youtube-player {
+  width: 100%;
+  height: 315px;
+  border-radius: 8px;
+}
+
+.video-placeholder {
+  background-color: rgba(248, 153, 57, 0.1);
+  border: 2px dashed var(--primary-color);
+  padding: 3rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+  color: var(--secondary-color);
+  font-style: italic;
+}
+
+/* Focus styles for accessibility */
+button:focus,
+input:focus {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .pomodoro-container { padding: 1rem; }
+  .main-title { font-size: 3rem; }
+  .phase-title { font-size: 2.5rem; }
+  .timer-display { font-size: 4rem; }
+  .goal-display { font-size: 1.5rem; }
+  .start-button { font-size: 1.2rem; padding: 1rem 2rem; }
+  .timer-controls { flex-direction: column; align-items: center; }
+  .control-button { width: 200px; }
+  .youtube-player { height: 200px; }
+  .transition-message { font-size: 2.5rem; }
+}
